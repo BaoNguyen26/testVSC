@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(function () {
+            $('.pnm, .price, .subtot, .grdtot').prop('readonly', true);
+            var $tblrows = $("#tblProducts tbody tr");
+
+            $tblrows.each(function (index) {
+                var $tblrow = $(this);
+
+                $tblrow.find('.qty').on('change', function () {
+                  
+
+                    var qty = $tblrow.find(".qty").val();
+                    var subTotal = parseInt(qty, 10);
+
+                    if (!isNaN(subTotal)) {
+
+                        $tblrow.find('.subtot').val(subTotal);
+                        
+                        var grandTotal = 0;
+                        var grandTotal1 = 0;
+                        var grandTotal3 = 0;
+                        var grandTotal4 = 0;
+                        var grandTotal5 = 0;
+                        var grandTotal6 = 0;
+
+
+                        var price = 0;
+                        var stval3;
+                        var stval4;
+
+
+                        $(".qty").each(function () {
+                            var stval = parseInt($(this).val());
+                            grandTotal += isNaN(stval) ? 0 : stval;
+                        });
+
+                        $tblrow.find("[name=subtot]").each(function(){
+                          stval3 = parseInt($(this).val());
+                          grandTotal3 += isNaN(stval3) ? 0 : stval3
+                        })
+
+                        $tblrow.find('.subtot3').val(grandTotal3)
+
+                          $(".subtot3").each(function(){
+                            var stval5 = parseInt($(this).val());
+                            grandTotal5 += isNaN(stval5) ? 0 : stval5
+                          })
+
+                        $tblrow.find("[name=price]").each(function(){
+                            price = parseInt(stval3/grandTotal*100);
+                            $tblrow.find($(this).val(price))
+                         })
+
+                         $tblrow.find("[name=price]").each(function(){
+                          stval4 = parseInt($(this).val());
+                          grandTotal4 += isNaN(stval4) ? 0 : stval4
+                        })
+
+                        $tblrow.find('.subtot4').val(grandTotal4)
+
+                        $(".subtot4").each(function(){
+                          var stval6 = parseInt($(this).val());
+                          grandTotal6 += isNaN(stval6) ? 0 : stval6
+                        })
+
+                        $(".price").each(function(){
+                          var stval1 = parseInt($(this).val());
+                          grandTotal1 += isNaN(stval1) ? 0 : stval1
+                        })
+                        
+                        $('.grdtot').val(grandTotal);
+                        $('.grdtot1').val(grandTotal1);
+                        $('.grdtot3').val(grandTotal5);
+                        $('.grdtot4').val(grandTotal6);
+                          
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <table id="tblProducts">
+    <thead>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td><input type="text" class="qty" value="" name="subtot" placeholder="A2"/></td>
+            <td><input type="text" class="price" value="A1" name="price"/></td>
+            <td><input type="text" class="subtot" value="A2" name="subtot"/></td>
+            <td><input type="text" class="subpri" value="A1" name="price"/></td>
+            <td><input type="text" class="subtot" value="A2" name="subtot"/></td>
+            <td><input type="text" class="subpri" value="A1" name="price"/></td>
+            <td><input type="text" class="subtot3" value="A3" name="subtot1"/></td>
+            <td><input type="text" class="subtot4" value="A4" name="subtot2"/></td>
+        </tr>
+
+        <tr>
+            <td><input type="text" class="qty" value="" name="subtot" placeholder="A2"/></td>
+            <td><input type="text" class="price" value="A1" name="price"/></td>
+            <td><input type="text" class="subtot" value="A2" name="subtot"/></td>
+            <td><input type="text" class="subpri" value="A1" name="price"/></td>
+            <td><input type="text" class="subtot" value="A2" name="subtot"/></td>
+            <td><input type="text" class="subpri" value="A1" name="price"/></td>
+            <td><input type="text" class="subtot3" value="A3" name="subtot1"/></td>
+            <td><input type="text" class="subtot4" value="A4" name="subtot2"/></td>
+        </tr>
+        
+        <tr>
+            <td><input type="text" class="qty" value="" name="subtot" placeholder="A2"/></td>
+            <td><input type="text" class="price" value="A1" name="price"/></td>
+            <td><input type="text" class="subtot" value="A2" name="subtot"/></td>
+            <td><input type="text" class="subpri" value="A1" name="price"/></td>
+            <td><input type="text" class="subtot" value="A2" name="subtot"/></td>
+            <td><input type="text" class="subpri" value="A1" name="price"/></td>
+            <td><input type="text" class="subtot3" value="A3" name="subtot1"/></td>
+            <td><input type="text" class="subtot4" value="A4" name="subtot2"/></td>
+        </tr>
+
+        <tr>
+            <td><input type="text" class="qty" value="" name="subtot" placeholder="A2"/></td>
+            <td><input type="text" class="price" value="A1" name="price"/></td>
+            <td><input type="text" class="subtot" value="A2" name="subtot"/></td>
+            <td><input type="text" class="subpri" value="A1" name="price"/></td>
+            <td><input type="text" class="subtot" value="A2" name="subtot"/></td>
+            <td><input type="text" class="subpri" value="A1" name="price"/></td>
+            <td><input type="text" class="subtot3" value="A3" name="subtot1"/></td>
+            <td><input type="text" class="subtot4" value="A4" name="subtot2"/></td>
+        </tr>
+
+        <tr>
+            <td><input type="text" class="grdtot" value="" name=""/></td>
+            <td><input type="text" class="grdtot1" value="" name=""/></td>
+            <td><input type="text" class="grdtot" value="" name=""/></td>
+            <td><input type="text" class="grdtot1" value="" name=""/></td>
+            <td><input type="text" class="grdtot" value="" name=""/></td>
+            <td><input type="text" class="grdtot1" value="" name=""/></td>
+            <td><input type="text" class="grdtot3" value="" name=""/></td>
+            <td><input type="text" class="grdtot4" value="" name=""/></td>
+        </tr>
+
+    </tbody>
+    <tfoot>
+        <!-- <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><input type="text" class="grdtot" value="" name=""/></td>
+        </tr> -->
+    </tfoot>
+    </table>
+</body>
+</html>
